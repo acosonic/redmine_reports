@@ -1,0 +1,10 @@
+class CreateRrReports < ActiveRecord::Migration
+  def change
+    create_table :rr_reports do |t|
+      t.integer :user_id
+      t.integer :public_flg
+      t.text :sql
+      t.integer :times
+    end
+  end
+end

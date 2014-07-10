@@ -1,0 +1,70 @@
+<%= stylesheet_link_tag "bootstrap.min.css", plugin: :redmine_twitter_bootstrap %>
+<%= stylesheet_link_tag "bootstrap-responsive.min.css", plugin: :redmine_twitter_bootstrap %>
+
+
+<%= javascript_heads %>
+<%= javascript_include_tag "bootstrap.min.js", plugin: :redmine_twitter_bootstrap %>
+
+<div class="row">
+  <div class="span6">
+
+    <table class="table table-bordered">
+      <thead>
+        <th>
+          個人用
+          <%= link_to new_redmine_report_path() do %>
+            <i class="icon-plus"></i>
+          <% end %>
+        </th>
+      </thead>
+      <tbody>
+      <% @reports.each do |record| %>
+        <% if record.public_flg == 0 %>
+        <tr>
+          <td>
+          <%= link_to record.title, redmine_report_path(record.id) %>
+
+          <%= link_to edit_redmine_report_path(record.id) do %>
+            <i class="icon-pencil"></i>
+          <% end %>
+          <%= link_to redmine_report_path(record), :method => :delete do %>
+            <i class="icon-trash"></i>
+          <% end %>
+
+          </td>
+        </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="span6">
+    <table class="table table-bordered">
+      <thead>
+        <th>公開
+        </th>
+      </thead>
+      <tbody>
+      <% @reports.each do |record| %>
+        <% if record.public_flg == 1 %>
+        <tr>
+          <td>
+          <%= link_to record.title, redmine_report_path(record.id) %>
+
+          <%= link_to edit_redmine_report_path(record.id) do %>
+            <i class="icon-pencil"></i>
+          <% end %>
+          <%= link_to redmine_report_path(record), :method => :delete do %>
+            <i class="icon-trash"></i>
+          <% end %>
+
+          </td>
+        </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

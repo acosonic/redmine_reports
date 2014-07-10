@@ -1,0 +1,26 @@
+<%= form_for @report do |f| %>
+    <div class="field">
+      <%= f.hidden_field :user_id %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :times %>
+    </div>
+    <div class="field">
+      <span>公開：</span>
+      <%= f.check_box :public_flg, {}, 1, 0 %>
+    </div>
+
+    <div class='field'>
+      <span>タイトル：</span>
+      <%= f.text_field :title %>
+    </div>
+    <div class='field'>
+      <span>SQL：</span>
+      <%= f.text_area :sql %>
+    </div>
+  <% p @report %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
