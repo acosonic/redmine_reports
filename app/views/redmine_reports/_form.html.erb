@@ -1,26 +1,34 @@
-<%= form_for @report do |f| %>
+<%= form_for @report, :html => {:class => "form form-horizontal"} do |f| %>
     <div class="field">
       <%= f.hidden_field :user_id %>
     </div>
     <div class="field">
       <%= f.hidden_field :times %>
     </div>
-    <div class="field">
-      <span>公開：</span>
-      <%= f.check_box :public_flg, {}, 1, 0 %>
+
+    <div class="field control-group">
+      <label class="control-label">タイトル：</label>
+      <div class="controls">
+        <%= f.text_field :title %>
+      </div>
+    </div>
+    <div class="field control-group">
+      <label class="control-label">SQL：</label>
+      <div class="controls">
+        <%= f.text_area :sql %>
+      </div>
     </div>
 
-    <div class='field'>
-      <span>タイトル：</span>
-      <%= f.text_field :title %>
+    <div class="field control-group">
+      <div class="controls">
+        <label class="checkbox">
+        <%= f.check_box :public_flg, {}, 1, 0 %> 公開
+        </label>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      </div>
     </div>
-    <div class='field'>
-      <span>SQL：</span>
-      <%= f.text_area :sql %>
-    </div>
-  <% p @report %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 
 <% end %>
