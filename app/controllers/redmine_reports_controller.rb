@@ -15,6 +15,23 @@ class RedmineReportsController < ApplicationController
     @query   = RedmineReport.where(id: report_id).first.sql
     @results = []
     @results = MultiQuery.new.exec_query(@query)
+    @header = []
+    if @results.present?
+      @results.first.each do |key, value|
+        @header << key
+      end
+    end
+
+    respond_to do |format|
+      format.html
+      format.json
+      format.csv  {
+        send_data MakeCsv.create_from_hash(@header,
+                                           @results,
+                                           nil) ,
+        type: 'text/csv; charset=shift_jis',
+        file_name: 'result.csv'}
+    end
   end
 
   def edit
@@ -62,6 +79,9 @@ class RedmineReportsController < ApplicationController
       format.html { redirect_to action: 'index', notice: 'hogehoge'}
       format.json
     end
+  end
+
+  def check_sql
   end
 
   private

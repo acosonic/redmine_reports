@@ -4,14 +4,11 @@
 <%= javascript_include_tag "bootstrap.min.js", plugin: :redmine_twitter_bootstrap %>
 <div class="row">
   <div class="span10">
-    <!--
-    <form action="index" class="form" method="get">
-      <textarea cols="80" name="query_str" rows="10">
-        <%= @query %>
-      </textarea>
-      <input type="submit" value="実行">/</input>
-    </form>
-    -->
+    <div class="download">
+    <%= link_to  current_url(:format => :csv) do %>
+      <i class="icon-download"></i>csv download
+    <% end %>
+    </div>
     <% if @results.present? %>
       <table class="table table-bordered">
         <thead>
