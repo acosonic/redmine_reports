@@ -7,7 +7,7 @@
     </div>
 
     <div class="field control-group">
-      <label class="control-label">タイトル：</label>
+      <label class="control-label"><%= l(:report_title) %>:</label>
       <div class="controls">
         <%= f.text_field :title %>
       </div>
@@ -22,7 +22,7 @@
     <div class="field control-group">
       <div class="controls">
         <label class="checkbox">
-        <%= f.check_box :public_flg, {}, 1, 0 %> 公開
+        <%= f.check_box :public_flg, {}, 1, 0 %> <%= l(:report_public) %>
         </label>
         <div class="actions">
           <%= f.submit %>

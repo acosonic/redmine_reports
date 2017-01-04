@@ -11,7 +11,7 @@
     <table class="table table-bordered">
       <thead>
         <th>
-          個人用
+          <%= l(:report_private) %>
           <%= link_to new_redmine_report_path() do %>
             <i class="icon-plus"></i>
           <% end %>
@@ -42,7 +42,7 @@
   <div class="span6">
     <table class="table table-bordered">
       <thead>
-        <th>公開
+        <th><%= l(:report_public) %>
         </th>
       </thead>
       <tbody>

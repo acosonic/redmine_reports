@@ -10,7 +10,8 @@
     <% end %>
     </div>
     <% if @results.present? %>
-      <table class="table table-bordered">
+      <div class="autoscroll">
+	  <table class="list issues">
         <thead>
           <% @results[0].each do |key ,value| %>
             <th>
@@ -20,7 +21,7 @@
         </thead>
         <tbody>
           <% @results.each do |result| %>
-            <tr>
+            <tr class="<%= cycle("odd", "even") %>">
               <% result.each do |key, value| %>
                 <td>
                   <%= value %>
@@ -30,6 +31,7 @@
           <% end %>
         </tbody>
       </table>
+	  </div>
     <% end %>
   </div>
   <div class="span2"></div>

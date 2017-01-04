@@ -1,3 +1,6 @@
 # English strings go here for Rails i18n
 en:
   # my_label: "My label"
+    report_public: "Public"
+    report_private: "Private (only me)"
+    report_title: "Title"

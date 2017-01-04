@@ -1,3 +1,9 @@
 = redmine_reports
 
 Description goes here
+
+I've forked it, and now trying to fix/improve...
+
+So, this plugin currently requires this one:
+
+https://github.com/ogom/redmine_twitter_bootstrap
